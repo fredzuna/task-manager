@@ -3,31 +3,25 @@ import SubTaskItem from "../subtasks/SubTaskItem"
 import DownArrowIcon from '../../assets/DownArrowIcon.svg';
 import UpArrowIcon from '../../assets/UpArrowIcon.svg';
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 interface IProps {
   task: ITask
 }
 
 function TaskDetail({ task } : IProps) {
-  const [open, setOpen] = useState(false);  
-  const navigate = useNavigate();
+  const [open, setOpen] = useState(true);  
 
   const handleToogle = () => {
     setOpen(!open)
   }
 
-  const handleSubTask = () => {
-    navigate(`/taskDetail/${task.id}`);
-  }  
-
   return (
     <div>
       <div className="border-b border-[#E1E3E5]">
-        <div onClick={handleSubTask} className="mx-4 cursor-pointer">
+        <div className="mx-4 cursor-pointer">
           <p className="font-bold text-xl ">{task.name}</p>
           <div className="flex items-center mb-4">
-            <span className="blocked-circle"></span>
+            <span className={`task-${task.status}`}></span>
             <span className="text-xs ml-2 font-sans text-red-600">{task.description}</span>
           </div>
         </div>

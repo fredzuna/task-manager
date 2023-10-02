@@ -4,7 +4,7 @@ import TaskList from './TaskList';
 
 function TaskListSection() {
   return (
-    <Container footer={<ButtonTask text='Add task' pathRedirect='/taskForm' />}>
+    <Container footer={<ButtonTask text='Add task' pathRedirect='/taskMarker' />}>      
       <TaskList />
     </Container>
   )

@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+.marker-NotStarted {
+  @apply fill-gray-500
+}
+
+.marker-Done {
+  @apply fill-green-500
+}
+
+.marker-Inprogress {
+  @apply fill-orange-500
+}
+
+.marker-Blocked {
+  @apply fill-red-500
+}
+
 .task-Done {
   @apply rounded-full w-3 h-3 bg-[#58E766] border border-[#00000033];
 }

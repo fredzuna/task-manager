@@ -6,10 +6,6 @@ import { ITask } from "../../interfaces/ITask";
 import { generate } from "shortid";
 import { ISubTask } from "../../interfaces/ISubTask";
 
-import { RxDBUpdatePlugin } from 'rxdb/plugins/update';
-import { addRxPlugin } from "rxdb";
-addRxPlugin(RxDBUpdatePlugin);
-
 function SubTaskForm() {
     const { taskId, subtaskId } = useParams();
 
@@ -51,14 +47,17 @@ function SubTaskForm() {
 
             subTaskCollection?.incrementalUpsert(newSubTask)
 
+            const markerValue = taskSelected.marker ? { top: taskSelected.marker.top, left: taskSelected.marker.left }: undefined;
+
             taskCollection?.incrementalUpsert({
                 id: taskSelected.id,
                 name: taskSelected.name,
                 status: taskSelected.status,
                 description: taskSelected.description,
                 subTasks: newSubTasks,
+                marker: markerValue
             });
-
+            
             navigate(-1);
         }
     }

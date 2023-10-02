@@ -1,6 +1,6 @@
 interface IContainer {
     children: React.ReactNode,
-    footer: React.ReactNode
+    footer?: React.ReactNode
   }
   
   export function Container({ children, footer } : IContainer) {

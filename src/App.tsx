@@ -7,6 +7,7 @@ import InitializeDb from './db/InitializeDb';
 import { Provider } from 'rxdb-hooks';
 import TaskForm from './pages/tasks/TaskForm';
 import TaskDetailSection from './pages/tasks/TaskDetailSection';
+import TaskMarker from './pages/markers/TaskMarker';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: "/subtaskForm/:taskId/:subtaskId?",
     element: <SubTaskForm />,
+  },
+  {
+    path: "/taskMarker",
+    element: <TaskMarker />,
   },
 ]);
 

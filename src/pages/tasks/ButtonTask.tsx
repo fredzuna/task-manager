@@ -13,7 +13,7 @@ export function ButtonTask( { text, pathRedirect } : IProps) {
     }
 
     return (
-      <div className='flex' onClick={handleClick}>
+      <div className='flex cursor-pointer' onClick={handleClick}>
         <img src={AddIcon} />
         <span className='text-[#2B87E3] text-base pl-4 font-medium'>{text}</span>
       </div>

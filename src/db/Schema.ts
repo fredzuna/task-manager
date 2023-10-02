@@ -39,7 +39,18 @@ export const taskSchema = {
                 }
               }
           }
-      }
+      },
+      marker: {
+        type: "object",
+        properties: {
+            top: {
+                "type": "number"
+            },
+            left: {
+                "type": "number"
+            }
+        }
+      } 
     },
     required: ['id']
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useRxCollection, useRxQuery } from "rxdb-hooks";
 import { useParams } from 'react-router';
 import { ETaskStatus } from "../../enums/ETaskStatus";
@@ -8,6 +8,7 @@ import { ITask } from "../../interfaces/ITask";
 
 function TaskForm() {
     const { id } = useParams();
+    const { state } = useLocation();
     
     const collection = useRxCollection<ITask>('tasks');
     const query = id ? collection?.findOne(id) : undefined;
@@ -22,13 +23,15 @@ function TaskForm() {
     const statusList = Object.keys(ETaskStatus);
 
     const handleCancel = () => {
-        navigate('/tasks');
+        navigate(-1);
     }
 
     const handleSave = () => {
         if(!name || !status || !description) {
             return;
         }
+
+        const markerValue = state ? { top: state.top, left: state.left }: undefined;
 
         if(id) {
             collection?.upsert({
@@ -43,10 +46,11 @@ function TaskForm() {
                 name,
                 status,
                 description,
+                marker: markerValue
             });
         }
 
-        navigate('/tasks');
+        navigate(-1);
     }
 
     useEffect(() => {
