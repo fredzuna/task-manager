@@ -25,3 +25,8 @@ If you are developing a production application, we recommend updating the config
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+# Time invested in the project.
+- The time it took to implement the project was 20 hours.
+- 8 hours in the UI 
+- 8 hours integrating the RxDB
+- 4 hours integrating  react-image-marker library to create task clicking from image
